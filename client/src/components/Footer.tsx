@@ -15,7 +15,7 @@ const Footer = () => {
                     </p>
 
                     <div className="mt-8 flex justify-center gap-8 text-sm">
-                        <span>📧 info@airoboticsworkshop.com</span>
+                        <span>📧 hello@kidlabacademy.com</span>
                         <span>📞 +91 98765 43210</span>
                     </div>
 

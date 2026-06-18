@@ -4,7 +4,7 @@ import robotImage from "../assets/images/robot.png";
 const Hero = () => {
     return (
         <section className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white">
-           <div className="container mx-auto px-6 py-32">
+            <div className="container mx-auto px-6 py-20">
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
