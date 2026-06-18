@@ -41,4 +41,26 @@ export const workshopData = {
             label: "Online",
         },
     ],
+    timeline: [
+        {
+            week: "Week 1",
+            title: "AI Foundations",
+            description: "Introduction to Artificial Intelligence and machine learning concepts.",
+        },
+        {
+            week: "Week 2",
+            title: "Robotics & Sensors",
+            description: "Learn how robots work using sensors and actuators.",
+        },
+        {
+            week: "Week 3",
+            title: "Automation Projects",
+            description: "Build exciting automation-based projects and challenges.",
+        },
+        {
+            week: "Week 4",
+            title: "Final Showcase Project",
+            description: "Create and present a complete AI & Robotics project.",
+        },
+    ],
 };
