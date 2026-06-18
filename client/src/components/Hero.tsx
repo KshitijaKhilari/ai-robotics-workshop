@@ -51,17 +51,18 @@ const Hero = () => {
                                 <span>→</span>
                             </a>
 
-                            <button
+                            <a
+                                href="#details"
                                 className="
-                                    border border-slate-600
-                                    px-8 py-4
-                                    rounded-xl
-                                    hover:bg-slate-800
-                                    transition-all duration-300
-                                "
+    border border-slate-600
+    px-8 py-4
+    rounded-xl
+    hover:bg-slate-800
+    transition-all duration-300
+  "
                             >
                                 Learn More
-                            </button>
+                            </a>
 
                         </div>
 
