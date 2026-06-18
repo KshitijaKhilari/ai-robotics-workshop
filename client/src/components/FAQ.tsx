@@ -10,7 +10,10 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-white py-24">
+    <section
+  id="faq"
+  className="bg-white py-24"
+>
       <div className="container mx-auto px-6 max-w-4xl">
 
         <div className="text-center mb-16">

@@ -2,7 +2,10 @@ import { workshopData } from "../data/workshopData";
 
 const Timeline = () => {
   return (
-    <section className="bg-slate-50 py-24">
+    <section
+  id="timeline"
+  className="bg-slate-50 py-24"
+>
       <div className="container mx-auto px-6">
 
         <div className="text-center mb-16">
