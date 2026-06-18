@@ -5,6 +5,7 @@ import LearningOutcomes from "./components/LearningOutcomes";
 import Timeline from "./components/Timeline";
 import FAQ from "./components/FAQ";
 import RegistrationForm from "./components/RegistrationForm";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
       <FAQ />
 
       <RegistrationForm />
+      
+      <Footer />
     </>
   );
 }

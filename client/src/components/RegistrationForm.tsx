@@ -10,6 +10,8 @@ type FormData = {
 
 const RegistrationForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const {
         register,
@@ -21,18 +23,23 @@ const RegistrationForm = () => {
     const onSubmit = async (data: FormData) => {
         try {
             setIsSubmitting(true);
+            setErrorMessage("");
+            setSuccessMessage("");
 
             const response = await axios.post(
                 "http://localhost:5000/api/enquiry",
                 data
             );
 
-            alert(response.data.message);
+            setSuccessMessage(response.data.message);
 
             reset();
         } catch (error) {
             console.error(error);
-            alert("Something went wrong");
+
+            setErrorMessage(
+                "Something went wrong. Please try again."
+            );
         } finally {
             setIsSubmitting(false);
         }
@@ -66,7 +73,27 @@ const RegistrationForm = () => {
               shadow-lg
               space-y-6
             "
+
                     >
+                        {successMessage && (
+                            <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                                <h4 className="font-semibold text-green-700">
+                                    ✓ Registration Successful
+                                </h4>
+
+                                <p className="text-green-600 text-sm mt-1">
+                                    {successMessage}
+                                </p>
+                            </div>
+                        )}
+
+                        {errorMessage && (
+                            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <p className="text-red-600">
+                                    {errorMessage}
+                                </p>
+                            </div>
+                        )}
 
                         {/* Name */}
                         <div>

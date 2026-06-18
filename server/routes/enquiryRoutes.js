@@ -1,49 +1,60 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/", (req, res) => {
-console.log("📩 New Enquiry Received:");
-console.log(req.body);
+const Enquiry = require("../models/Enquiry");
 
-const { name, email, phone } = req.body;
+router.post("/", async (req, res) => {
+    try {
+        console.log("📩 New Enquiry Received:");
+        console.log(req.body);
 
-// Validation
-if (!name || !email || !phone) {
-return res.status(400).json({
-success: false,
-message: "All fields are required",
-});
-}
+        const { name, email, phone } = req.body;
 
-// Email validation
-const emailRegex = /^\S+@\S+.\S+$/;
+        if (!name || !email || !phone) {
+            return res.status(400).json({
+                success: false,
+                message: "All fields are required",
+            });
+        }
 
-if (!emailRegex.test(email)) {
-return res.status(400).json({
-success: false,
-message: "Invalid email address",
-});
-}
+        const emailRegex = /^\S+@\S+\.\S+$/;
 
-// Phone validation
-const phoneRegex = /^[0-9]{10}$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid email address",
+            });
+        }
 
-if (!phoneRegex.test(phone)) {
-return res.status(400).json({
-success: false,
-message: "Phone number must be 10 digits",
-});
-}
+        const phoneRegex = /^[0-9]{10}$/;
 
-return res.status(200).json({
-success: true,
-message: "Enquiry submitted successfully",
-data: {
-name,
-email,
-phone,
-},
-});
+        if (!phoneRegex.test(phone)) {
+            return res.status(400).json({
+                success: false,
+                message: "Phone number must be 10 digits",
+            });
+        }
+
+        const enquiry = await Enquiry.create({
+            name,
+            email,
+            phone,
+        });
+        console.log("Saved to MongoDB:", enquiry);
+
+        return res.status(201).json({
+            success: true,
+            message: "Thank you for registering for the AI & Robotics Summer Workshop.Our team will contact you shortly with further details.submitted successfully",
+      data: enquiry,
+        });
+    } catch (error) {
+        console.error(error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Server Error",
+        });
+    }
 });
 
 module.exports = router;
