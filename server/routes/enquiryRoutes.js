@@ -35,17 +35,32 @@ router.post("/", async (req, res) => {
             });
         }
 
+        // Check duplicate registration
+        const existingEnquiry = await Enquiry.findOne({
+            $or: [{ email }, { phone }],
+        });
+
+        if (existingEnquiry) {
+            return res.status(400).json({
+                success: false,
+                message:
+                    "You have already registered for this workshop.",
+            });
+        }
+
         const enquiry = await Enquiry.create({
             name,
             email,
             phone,
         });
-        console.log("Saved to MongoDB:", enquiry);
+
+        console.log("✅ Saved to MongoDB:", enquiry);
 
         return res.status(201).json({
             success: true,
-            message: "Thank you for registering for the AI & Robotics Summer Workshop.Our team will contact you shortly with further details.submitted successfully",
-      data: enquiry,
+            message:
+                "🎉 Registration Successful! Our team will contact you shortly with workshop details.",
+            data: enquiry,
         });
     } catch (error) {
         console.error(error);
