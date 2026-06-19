@@ -4,9 +4,18 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   min-width: 320px;
-  font-family: Inter, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+a {
+  text-decoration: none;
 }

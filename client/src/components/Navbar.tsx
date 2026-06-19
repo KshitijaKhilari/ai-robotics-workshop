@@ -1,14 +1,25 @@
+import navbarLogo from "../assets/logo/navbar_logo.png";
+
 const Navbar = () => {
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
             <div className="container mx-auto px-6">
 
-                <div className="flex items-center justify-between h-16">
+                <div className="flex items-center justify-between h-20">
 
-                    <h1 className="text-xl font-bold text-white">
-                        AI & Robotics
-                    </h1>
+                    {/* Logo */}
+                    <a
+                        href="#home"
+                        className="flex items-center"
+                    >
+                        <img
+                            src={navbarLogo}
+                            alt="KidLab Academy"
+                            className="h-14 w-auto hover:scale-105 transition-all duration-300"
+                        />
+                    </a>
 
+                    {/* Navigation Links */}
                     <div className="hidden md:flex items-center gap-8 text-slate-300">
 
                         <a
@@ -41,7 +52,7 @@ const Navbar = () => {
 
                         <a
                             href="#registration"
-                            className="text-purple-400 font-medium"
+                            className="text-purple-400 font-medium hover:text-purple-300 transition"
                         >
                             Register
                         </a>

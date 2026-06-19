@@ -3,8 +3,11 @@ import robotImage from "../assets/images/robot.png";
 
 const Hero = () => {
     return (
-        <section className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white">
-            <div className="container mx-auto px-6 py-20">
+        <section
+            id="home"
+            className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white"
+        >
+            <div className="container mx-auto px-6 py-28">
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -54,12 +57,12 @@ const Hero = () => {
                             <a
                                 href="#details"
                                 className="
-    border border-slate-600
-    px-8 py-4
-    rounded-xl
-    hover:bg-slate-800
-    transition-all duration-300
-  "
+                                    border border-slate-600
+                                    px-8 py-4
+                                    rounded-xl
+                                    hover:bg-slate-800
+                                    transition-all duration-300
+                                "
                             >
                                 Learn More
                             </a>
@@ -74,6 +77,7 @@ const Hero = () => {
                                     <h3 className="text-2xl font-bold">
                                         {stat.value}
                                     </h3>
+
                                     <p className="text-slate-400">
                                         {stat.label}
                                     </p>
