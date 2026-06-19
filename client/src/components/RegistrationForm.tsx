@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
+import { FaPaperPlane, FaRobot } from "react-icons/fa";
 
 type FormData = {
     name: string;
@@ -32,14 +33,10 @@ const RegistrationForm = () => {
             );
 
             setSuccessMessage(response.data.message);
-
             reset();
         } catch (error) {
             console.error(error);
-
-            setErrorMessage(
-                "Something went wrong. Please try again."
-            );
+            setErrorMessage("Something went wrong. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -48,105 +45,69 @@ const RegistrationForm = () => {
     return (
         <section
             id="registration"
-            className="bg-slate-50 py-24"
+            className="kid-section bg-gradient-to-br from-[#fff6fb] via-white to-[#effbff] py-20"
         >
-            <div className="container mx-auto px-6">
-
-                <div className="max-w-2xl mx-auto">
-
-                    <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold text-slate-900">
-                            Register Now
+            <div className="star-field" />
+            <div className="container relative z-10 mx-auto grid items-center gap-10 px-5 sm:px-6 lg:grid-cols-[1fr_0.9fr]">
+                <div className="mx-auto w-full max-w-xl lg:order-2">
+                    <div className="mb-8 text-center">
+                        <h2 className="pastel-title text-4xl font-black sm:text-5xl">
+                            Register Now!
                         </h2>
-
-                        <p className="text-slate-500 mt-4">
-                            Reserve your seat for the AI & Robotics Summer Workshop.
+                        <p className="mt-3 font-semibold text-[#667096]">
+                            Reserve your spot for an exciting learning adventure.
                         </p>
                     </div>
 
                     <form
                         onSubmit={handleSubmit(onSubmit)}
-                        className="
-              bg-white
-              p-8
-              rounded-3xl
-              shadow-lg
-              space-y-6
-            "
-
+                        className="soft-card space-y-5 rounded-[2rem] p-6 sm:p-8"
                     >
                         {successMessage && (
-                            <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-                                <h4 className="font-semibold text-green-700">
-                                    ✓ Registration Successful
+                            <div className="rounded-2xl border border-[#a9ead0] bg-[#effff7] p-4 text-center">
+                                <h4 className="text-2xl font-black text-[#1f9d68]">
+                                    🎉 Yay!
                                 </h4>
-
-                                <p className="text-green-600 text-sm mt-1">
-                                    {successMessage}
+                                <p className="mt-2 text-sm font-extrabold leading-6 text-[#247b59]">
+                                    Your seat request has been submitted successfully.
+                                    <span className="block">We'll contact you soon!</span>
                                 </p>
                             </div>
                         )}
 
                         {errorMessage && (
-                            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                                <p className="text-red-600">
-                                    {errorMessage}
-                                </p>
+                            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-4 font-semibold text-rose-600">
+                                {errorMessage}
                             </div>
                         )}
 
-                        {/* Name */}
                         <div>
-                            <label className="block mb-2 font-medium text-slate-700">
+                            <label className="mb-2 block text-sm font-extrabold text-[#17225f]">
                                 Name
                             </label>
-
                             <input
                                 type="text"
                                 placeholder="Enter your name"
-                                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-4
-                  py-3
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-purple-500
-                "
+                                className="w-full rounded-xl border border-[#dce5f4] bg-white px-4 py-3 text-[#17225f] outline-none transition focus:border-[#ff5ba8] focus:ring-4 focus:ring-[#ff5ba8]/15"
                                 {...register("name", {
                                     required: "Name is required",
                                 })}
                             />
-
                             {errors.name && (
-                                <p className="text-red-500 text-sm mt-1">
+                                <p className="mt-1 text-sm font-semibold text-rose-500">
                                     {errors.name.message}
                                 </p>
                             )}
                         </div>
 
-                        {/* Email */}
                         <div>
-                            <label className="block mb-2 font-medium text-slate-700">
+                            <label className="mb-2 block text-sm font-extrabold text-[#17225f]">
                                 Email
                             </label>
-
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-4
-                  py-3
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-purple-500
-                "
+                                className="w-full rounded-xl border border-[#dce5f4] bg-white px-4 py-3 text-[#17225f] outline-none transition focus:border-[#ff5ba8] focus:ring-4 focus:ring-[#ff5ba8]/15"
                                 {...register("email", {
                                     required: "Email is required",
                                     pattern: {
@@ -155,34 +116,21 @@ const RegistrationForm = () => {
                                     },
                                 })}
                             />
-
                             {errors.email && (
-                                <p className="text-red-500 text-sm mt-1">
+                                <p className="mt-1 text-sm font-semibold text-rose-500">
                                     {errors.email.message}
                                 </p>
                             )}
                         </div>
 
-                        {/* Phone */}
                         <div>
-                            <label className="block mb-2 font-medium text-slate-700">
+                            <label className="mb-2 block text-sm font-extrabold text-[#17225f]">
                                 Phone Number
                             </label>
-
                             <input
                                 type="tel"
                                 placeholder="Enter your phone number"
-                                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-4
-                  py-3
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-purple-500
-                "
+                                className="w-full rounded-xl border border-[#dce5f4] bg-white px-4 py-3 text-[#17225f] outline-none transition focus:border-[#ff5ba8] focus:ring-4 focus:ring-[#ff5ba8]/15"
                                 {...register("phone", {
                                     required: "Phone number is required",
                                     pattern: {
@@ -191,9 +139,8 @@ const RegistrationForm = () => {
                                     },
                                 })}
                             />
-
                             {errors.phone && (
-                                <p className="text-red-500 text-sm mt-1">
+                                <p className="mt-1 text-sm font-semibold text-rose-500">
                                     {errors.phone.message}
                                 </p>
                             )}
@@ -202,29 +149,25 @@ const RegistrationForm = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="
-                w-full
-                bg-gradient-to-r
-                from-purple-600
-                to-fuchsia-500
-                text-white
-                py-3
-                rounded-xl
-                font-semibold
-                hover:scale-[1.02]
-                transition-all
-                disabled:opacity-50
-              "
+                            className="pink-button inline-flex w-full items-center justify-center gap-3 rounded-xl py-4 font-black text-white transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                            {isSubmitting
-                                ? "Submitting..."
-                                : "Register Now"}
+                            {isSubmitting ? "Submitting..." : "Yes! I Want to Join"}
+                            <FaPaperPlane size={14} />
                         </button>
-
                     </form>
-
                 </div>
 
+                <div className="relative mx-auto hidden w-full max-w-md justify-center lg:flex">
+                    <div className="absolute inset-x-0 bottom-8 h-32 rounded-[50%] bg-[#b7ecff]/70 blur-2xl" />
+                    <div className="soft-card relative rounded-[2.4rem] p-8 text-center">
+                        <div className="mx-auto grid h-28 w-28 place-items-center rounded-[2rem] bg-[#dff3ff] text-[#263a9b] shadow-inner">
+                            <FaRobot size={56} />
+                        </div>
+                        <div className="mt-6 rounded-[2rem] border-2 border-[#7edce5] bg-white p-5 text-lg font-black text-[#263a9b]">
+                            Let's build the future together!
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

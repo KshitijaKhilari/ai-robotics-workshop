@@ -1,100 +1,88 @@
 import {
-    FaUsers,
     FaCalendarAlt,
     FaLaptop,
-    FaRupeeSign,
     FaRocket,
+    FaRupeeSign,
+    FaUsers,
 } from "react-icons/fa";
-
 import { workshopData } from "../data/workshopData";
 
 const details = [
     {
-        icon: <FaUsers size={28} />,
+        icon: FaUsers,
         title: "Age Group",
         value: workshopData.ageGroup,
         desc: "Perfect for beginners",
+        color: "text-[#9b62ff] bg-[#efe8ff]",
     },
     {
-        icon: <FaCalendarAlt size={28} />,
+        icon: FaCalendarAlt,
         title: "Duration",
         value: workshopData.duration,
         desc: "Weekend live sessions",
+        color: "text-[#ff6aae] bg-[#ffe8f3]",
     },
     {
-        icon: <FaLaptop size={28} />,
+        icon: FaLaptop,
         title: "Mode",
         value: workshopData.mode,
         desc: "Learn from anywhere",
+        color: "text-[#4e9bff] bg-[#e5f3ff]",
     },
     {
-        icon: <FaRupeeSign size={28} />,
+        icon: FaRupeeSign,
         title: "Fee",
         value: workshopData.fee,
         desc: "Affordable learning",
+        color: "text-[#ff8bbf] bg-[#fff0f6]",
     },
     {
-        icon: <FaRocket size={28} />,
+        icon: FaRocket,
         title: "Start Date",
         value: workshopData.startDate,
         desc: "Limited seats available",
+        color: "text-[#f2a300] bg-[#fff2cf]",
     },
 ];
 
 const WorkshopDetails = () => {
     return (
-        <section
-            id="details"
-            className="bg-slate-50 py-24"
-        >
-            <div className="container mx-auto px-6">
-
-                <div className="text-center mb-14">
-                    <h2 className="text-4xl font-bold text-slate-900">
+        <section id="details" className="kid-section bg-gradient-to-br from-[#fff8fe] to-[#f1fbff] py-20">
+            <div className="container relative z-10 mx-auto px-5 sm:px-6">
+                <div className="mb-12 text-center">
+                    <h2 className="pastel-title text-4xl font-black sm:text-5xl">
                         Workshop Details
                     </h2>
-
-                    <p className="text-slate-500 mt-4">
+                    <p className="mt-3 font-semibold text-[#667096]">
                         Everything you need to know before enrolling.
                     </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+                    {details.map((detail) => {
+                        const Icon = detail.icon;
 
-                    {details.map((detail) => (
-                        <div
-                            key={detail.title}
-                            className="
-                bg-white
-                rounded-2xl
-                p-6
-                shadow-md
-                hover:-translate-y-2
-                hover:shadow-xl
-                transition-all
-                duration-300
-                text-center
-              "
-                        >
-                            <div className="flex justify-center text-purple-600 mb-4">
-                                {detail.icon}
-                            </div>
-
-                            <h3 className="font-semibold text-slate-700">
-                                {detail.title}
-                            </h3>
-
-                            <p className="mt-2 text-lg font-bold text-slate-900">
-                                {detail.value}
-                            </p>
-                            <p className="text-sm text-slate-500 mt-2">
-                                {detail.desc}
-                            </p>
-                        </div>
-                    ))}
-
+                        return (
+                            <article
+                                key={detail.title}
+                                className="soft-card rounded-[1.7rem] p-6 text-center transition hover:-translate-y-1"
+                            >
+                                <div className={`mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl text-2xl ${detail.color}`}>
+                                    <Icon />
+                                </div>
+                                <h3 className="text-sm font-black text-[#667096]">
+                                    {detail.title}
+                                </h3>
+                                <p className="mt-2 text-xl font-black text-[#17225f]">
+                                    {detail.value}
+                                </p>
+                                <p className="mt-2 text-sm font-semibold text-[#737b99]">
+                                    {detail.desc}
+                                </p>
+                            </article>
+                        );
+                    })}
                 </div>
-
             </div>
         </section>
     );

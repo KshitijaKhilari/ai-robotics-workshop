@@ -2,19 +2,19 @@ export const workshopData = {
     title: "AI & Robotics Summer Workshop",
 
     subtitle:
-        "Explore Artificial Intelligence, Robotics, and Automation through exciting hands-on projects designed for young innovators.",
+        "Explore, create, and innovate with AI and robots through a fun 4-week learning adventure for young minds.",
 
     badge: "Summer Workshop 2026",
 
-    announcement: "🚀 Limited Seats Available • July 2026",
+    announcement: "Limited seats available - July 2026",
 
-    ageGroup: "8–14 Years",
+    ageGroup: "8-14 Years",
 
     duration: "4 Weeks",
 
     mode: "Online",
 
-    fee: "₹2,999",
+    fee: "Rs. 2,999",
 
     startDate: "15 July 2026",
 
@@ -33,7 +33,7 @@ export const workshopData = {
             label: "Duration",
         },
         {
-            value: "8–14",
+            value: "8-14",
             label: "Age Group",
         },
         {
@@ -45,22 +45,22 @@ export const workshopData = {
         {
             week: "Week 1",
             title: "AI Foundations",
-            description: "Introduction to Artificial Intelligence and machine learning concepts.",
+            description: "Discover the basics of AI and how machines think.",
         },
         {
             week: "Week 2",
             title: "Robotics & Sensors",
-            description: "Learn how robots work using sensors and actuators.",
+            description: "Learn about robots, sensors, and how they work.",
         },
         {
             week: "Week 3",
             title: "Automation Projects",
-            description: "Build exciting automation-based projects and challenges.",
+            description: "Build smart projects with AI and automation.",
         },
         {
             week: "Week 4",
-            title: "Final Showcase Project",
-            description: "Create and present a complete AI & Robotics project.",
+            title: "Final Showcase",
+            description: "Create, present, and celebrate your project.",
         },
     ],
 };

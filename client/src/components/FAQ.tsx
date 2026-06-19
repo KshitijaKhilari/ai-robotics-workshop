@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaQuestionCircle, FaRobot } from "react-icons/fa";
 import { faqData } from "../data/faqData";
 
 const FAQ = () => {
@@ -10,70 +10,60 @@ const FAQ = () => {
   };
 
   return (
-    <section
-  id="faq"
-  className="bg-white py-24"
->
-      <div className="container mx-auto px-6 max-w-4xl">
+    <section id="faq" className="kid-section bg-gradient-to-br from-[#fff7fb] via-white to-[#f1fbff] py-20">
+      <div className="star-field" />
+      <div className="container relative z-10 mx-auto grid items-center gap-10 px-5 sm:px-6 lg:grid-cols-[1fr_18rem]">
+        <div>
+          <div className="mb-10 text-center lg:text-left">
+            <h2 className="pastel-title text-4xl font-black sm:text-5xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-3 font-semibold text-[#667096]">
+              Answers to common questions from parents and students.
+            </p>
+          </div>
 
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900">
-            Frequently Asked Questions
-          </h2>
-
-          <p className="text-slate-500 mt-4">
-            Answers to common questions from parents and students.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-
-          {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className="
-                border border-slate-200
-                rounded-2xl
-                overflow-hidden
-                shadow-sm
-              "
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="
-                  w-full
-                  flex
-                  justify-between
-                  items-center
-                  text-left
-                  px-6
-                  py-5
-                  bg-white
-                  hover:bg-slate-50
-                  transition
-                "
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div
+                key={faq.question}
+                className="soft-card overflow-hidden rounded-2xl"
               >
-                <span className="font-semibold text-slate-800">
-                  {faq.question}
-                </span>
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                >
+                  <span className="font-black text-[#17225f]">
+                    {faq.question}
+                  </span>
+                  <FaChevronDown
+                    className={`shrink-0 text-[#263a9b] transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-                <FaChevronDown
-                  className={`transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {openIndex === index && (
-                <div className="px-6 pb-5 text-slate-600">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          ))}
-
+                {openIndex === index && (
+                  <div className="px-5 pb-5 font-semibold leading-7 text-[#5a6388]">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
+        <aside className="hidden lg:block">
+          <div className="soft-card rounded-[2rem] p-7 text-center">
+            <div className="mx-auto mb-5 grid h-20 w-20 place-items-center rounded-[1.6rem] bg-[#efe9ff] text-[#8b65ff]">
+              <FaQuestionCircle size={38} />
+            </div>
+            <p className="mb-6 rounded-[1.5rem] border-2 border-[#d8c8ff] bg-white p-4 font-black text-[#263a9b]">
+              Good questions!
+            </p>
+            <FaRobot className="mx-auto text-[#4e9bff]" size={70} />
+          </div>
+        </aside>
       </div>
     </section>
   );
