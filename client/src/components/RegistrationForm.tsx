@@ -28,7 +28,7 @@ const RegistrationForm = () => {
             setSuccessMessage("");
 
             const response = await axios.post(
-                "http://localhost:5000/api/enquiry",
+                "https://ai-robotics-workshop-p0g0.onrender.com/api/enquiry",
                 data
             );
 
