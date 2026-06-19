@@ -28,7 +28,7 @@ const RegistrationForm = () => {
             setSuccessMessage("");
 
             const response = await axios.post(
-                "https://ai-robotics-workshop-p0g0.onrender.com/api/enquiry",
+                `${import.meta.env.VITE_API_URL}/enquiry`,
                 data
             );
 
